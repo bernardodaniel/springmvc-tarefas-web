@@ -40,7 +40,7 @@ public class TarefaController {
 		
 		repositorio.save(tarefa);
 		
-		mv.setViewName("lista-tarefas");
+		mv.setViewName("redirect:/tarefas/lista");
 		return mv;
 	}
 
