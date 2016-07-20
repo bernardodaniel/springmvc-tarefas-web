@@ -32,7 +32,11 @@
    								th:classappend="${tarefa.finalizado ? 'label-success' : 'label-danger'}"></span>
    						</td>
    						<td class="text-center" th:text="${{tarefa.dataFinalizacao}}"></td>
-   						<td></td>
+   						<td>
+   							<a class="btn btn-link btn-xs" th:href="@{/tarefas/{id}(id=${tarefa.id})}">
+   								<span class="glyphicon glyphicon-pencil"></span>
+   							</a>
+   						</td>
    					</tr>
 		   			<tr>
 		   				<td colspan="5" th:if="${#lists.isEmpty(tarefas)}">Nenhuma tarefa encontrada!</td>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -54,6 +55,15 @@ public class TarefaController {
 		
 		return mv;
 	}
+	
+	@RequestMapping("{id}")
+	public ModelAndView edicao(@PathVariable("id") Tarefa tarefa) {
+		ModelAndView mv = new ModelAndView("edita-tarefa");
+		mv.addObject(tarefa);
+		
+		return mv;
+	}
+	
 	
 	
 }
