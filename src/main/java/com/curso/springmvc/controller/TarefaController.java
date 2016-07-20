@@ -2,11 +2,8 @@ package com.curso.springmvc.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,6 +59,14 @@ public class TarefaController {
 		mv.addObject(tarefa);
 		
 		return mv;
+	}
+	
+	@RequestMapping("/remove/{id}")
+	public String remove(@PathVariable("id") Tarefa tarefa) {
+		
+		repositorio.delete(tarefa);
+		
+		return "forward:/tarefas/lista";
 	}
 	
 	
