@@ -13,6 +13,22 @@
    			<h1 class="panel-title">Pesquisa de Tarefas</h1>
    		</div>
    		<div class="panel-body">
+   		
+   			<form action="/tarefas/pesquisa" class="form-horizontal" method="GET">
+   				<div class="form-group">
+   					<div class="col-sm-4">
+   						<div class="input-group">
+   							<input class="form-control" placeholder="Qual tarefa deseja?" name="descricao"></input>
+   							<span class="input-group-btn">
+   								<button type="submit" class="btn btn-default">
+   									<i class="glyphicon glyphicon-search"></i>
+   								</button>
+   							</span>
+   						</div>
+   					</div>
+   				</div>
+   			</form>
+   		
    			<table class="table table-striped table-bordered">
    				<thead>
 	   				<tr>

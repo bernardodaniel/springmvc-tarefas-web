@@ -8,6 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.springmvc.modelo.Tarefa;
@@ -68,7 +69,16 @@ public class TarefaController {
 		
 		return "forward:/tarefas/lista";
 	}
-	
+
+	@RequestMapping("/pesquisa")
+	public ModelAndView pesquisa(@RequestParam(defaultValue = "%") String descricao) {
+		List<Tarefa> tarefas = repositorio.findByDescricao(descricao);
+		
+		ModelAndView mv = new ModelAndView("lista-tarefas");
+		mv.addObject("tarefas", tarefas);
+		
+		return mv;
+	}
 	
 	
 }
