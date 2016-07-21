@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.springmvc.modelo.Tarefa;
+import com.curso.springmvc.repositorio.TarefaFiltro;
 import com.curso.springmvc.repositorio.TarefaRepositorio;
 
 @Controller
@@ -45,7 +46,7 @@ public class TarefaController {
 
 	
 	@RequestMapping("/lista")
-	public ModelAndView lista() {
+	public ModelAndView lista(@ModelAttribute("filtro") TarefaFiltro filtro) {
 		List<Tarefa> tarefas = repositorio.findAll();
 		
 		ModelAndView mv = new ModelAndView("lista-tarefas");
@@ -71,8 +72,8 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/pesquisa")
-	public ModelAndView pesquisa(@RequestParam(defaultValue = "%") String descricao) {
-		List<Tarefa> tarefas = repositorio.findByDescricao(descricao);
+	public ModelAndView pesquisa(@ModelAttribute("filtro") TarefaFiltro filtro) {
+		List<Tarefa> tarefas = repositorio.findByDescricao(filtro.getDescricao());
 		
 		ModelAndView mv = new ModelAndView("lista-tarefas");
 		mv.addObject("tarefas", tarefas);

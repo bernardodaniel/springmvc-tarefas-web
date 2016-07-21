@@ -14,11 +14,11 @@
    		</div>
    		<div class="panel-body">
    		
-   			<form action="/tarefas/pesquisa" class="form-horizontal" method="GET">
+   			<form action="/tarefas/pesquisa" class="form-horizontal" method="GET" th:object="${filtro}">
    				<div class="form-group">
    					<div class="col-sm-4">
    						<div class="input-group">
-   							<input class="form-control" placeholder="Qual tarefa deseja?" name="descricao"></input>
+   							<input class="form-control" placeholder="Qual tarefa deseja?" th:field="*{descricao}"></input>
    							<span class="input-group-btn">
    								<button type="submit" class="btn btn-default">
    									<i class="glyphicon glyphicon-search"></i>
