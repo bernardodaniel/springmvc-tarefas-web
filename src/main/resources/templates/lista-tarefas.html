@@ -7,7 +7,17 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-static-top"></nav>
+	<nav class="navbar navbar-static-top">
+	
+		<h5 th:inline="text" class="white">Hello [[${#httpServletRequest.remoteUser}]]!</h5>
+		<form th:action="@{/logout}" method="post">
+	        <input type="submit" value="Sair"/>
+	    </form>
+	    
+	    
+	</nav>
+	
+        
 	<div class="panel panel-default">
    		<div class="panel-heading">
    			<h1 class="panel-title">Pesquisa de Tarefas</h1>
