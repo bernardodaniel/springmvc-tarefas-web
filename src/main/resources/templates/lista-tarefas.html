@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Pesquisa de Tarefas</title>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
 	<nav class="navbar navbar-static-top">
@@ -24,7 +24,7 @@
    		</div>
    		<div class="panel-body">
    		
-   			<form action="/tarefas/pesquisa" class="form-horizontal" method="GET" th:object="${filtro}">
+   			<form th:action="@{/tarefas/pesquisa}" class="form-horizontal" method="GET" th:object="${filtro}">
    				<div class="form-group">
    					<div class="col-sm-4">
    						<div class="input-group">
@@ -86,7 +86,7 @@
 	        </button>	
 	        <h4 class="modal-title" id="exclusaoModalLabel">Excluir Tarefa</h4>
 	      </div>
-        	<form action="/tarefas/remove/" method="POST">
+        	<form th:action="@{/tarefas/remove/}" method="POST">
 		      <div class="modal-body">
 		          <label class="control-label">Tem certeza que deseja excluir a tarefa?</label>
 		      </div>
@@ -99,9 +99,9 @@
 	  </div>
 	</div>
 		
-<script src="/js/jquery-1.9.1.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/exclui-tarefa.js"></script>
+<script th:src="@{/js/jquery-1.9.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/exclui-tarefa.js}"></script>
 </body>
 </html>
 
